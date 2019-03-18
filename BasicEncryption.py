@@ -21,12 +21,13 @@ print("Origin text: {}".format(text))
 
 msg = cipher.encrypt(text.encode())
 
-print("ENcrypted Text {}".format(msg))
+print("Ecrypted Text {}".format(msg))
 
-
+print("Key: {}".format(key))
 
 decipher = AES.new(key, AES.MODE_ECB)
-
-print("Decrypted text: {}".format(decipher.decrypt(msg)))
+new_msg = decipher.decrypt(msg).rstrip()
+new_msg = new_msg.decode()
+print("Decrypted text: {}".format(new_msg))
 
 
