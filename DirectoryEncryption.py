@@ -90,8 +90,8 @@ for subdir, dirs, files in os.walk('.'):
     for file in files:
         if '.txt' in file and 'Cle' not in file:
             print("\nFile is <----------- {} ------------>".format(os.path.join(file)))
-            encryptsFile(os.path.join(subdir, file))
-            decryptsFile(os.path.join(subdir, file))
+            #encryptsFile(os.path.join(subdir, file))
+            #decryptsFile(os.path.join(subdir, file))
 
 
 print("\nDone SO Far")
