@@ -19,11 +19,6 @@ def sleep(n):
 
 
 #Generates Key
-key = getKey()
-cipher = AES.new(key, AES.MODE_ECB)
-print("Key: {}".format(key))
-sleep(2)
-
 
 def encryptsFile(name):
     global key
@@ -86,12 +81,23 @@ def decryptsFile(name):
     print("\nDecrypted File Contents: {}".format(text))
 
 
+key = getKey()
+cipher = AES.new(key, AES.MODE_ECB)
+print("Key: {}".format(key))
+sleep(2)
+
+option = int(input("Press 1 to encrypt \n\tOr\n2 to Decrypt"))
+
+
 for subdir, dirs, files in os.walk('.'):
     for file in files:
         if '.txt' in file and 'Cle' not in file:
             print("\nFile is <----------- {} ------------>".format(os.path.join(file)))
-            #encryptsFile(os.path.join(subdir, file))
-            #decryptsFile(os.path.join(subdir, file))
-
+            if option == 1:
+                    encryptsFile(os.path.join(subdir, file))
+            elif option == 2:
+                    decryptsFile(os.path.join(subdir, file))
+            else:
+                    print("No Option Selected")
 
 print("\nDone SO Far")
